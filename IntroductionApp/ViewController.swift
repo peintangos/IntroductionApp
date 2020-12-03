@@ -58,12 +58,13 @@ class ViewController: UIViewController {
         view.yoga.applyLayout(preservingOrigin: true)
         
         rightContentview.rx.tap.subscribe { (action) in
-            print("aaa")
+            AlertUtil().makeAlert(vc: self)
         }.disposed(by: dispose)
         
         leftContentview.rx.tap.subscribe { (action) in
             print("bbb")
         }
     }
+
 }
 
