@@ -62,7 +62,8 @@ class ViewController: UIViewController {
         }.disposed(by: dispose)
         
         leftContentview.rx.tap.subscribe { (action) in
-            print("bbb")
+            let fv = FaceRedFieldViewController()
+            self.present(fv, animated: true, completion: nil)
         }
     }
 
