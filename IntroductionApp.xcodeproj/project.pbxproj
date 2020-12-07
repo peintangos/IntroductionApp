@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F794121257B813300FEAF91 /* AllMembersShowUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794120257B813300FEAF91 /* AllMembersShowUpViewController.swift */; };
 		0FA2A581257B506C004ADC40 /* FaceRedFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */; };
+		0FA2A5A5257B5ADE004ADC40 /* UIParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */; };
 		0FA3CEB82577C69A0014379F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CEB72577C69A0014379F /* AppDelegate.swift */; };
 		0FA3CEBA2577C69A0014379F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CEB92577C69A0014379F /* SceneDelegate.swift */; };
 		0FA3CEBC2577C69A0014379F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CEBB2577C69A0014379F /* ViewController.swift */; };
@@ -41,7 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F794120257B813300FEAF91 /* AllMembersShowUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMembersShowUpViewController.swift; sourceTree = "<group>"; };
 		0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRedFieldViewController.swift; sourceTree = "<group>"; };
+		0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIParts.swift; sourceTree = "<group>"; };
 		0FA3CEB42577C69A0014379F /* IntroductionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroductionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA3CEB72577C69A0014379F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FA3CEB92577C69A0014379F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				0FA3CF2925791EE40014379F /* PlayFieldViewController.swift */,
 				0FA3CF2E257920E80014379F /* AlertUtil.swift */,
 				0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */,
+				0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */,
+				0F794120257B813300FEAF91 /* AllMembersShowUpViewController.swift */,
 			);
 			path = IntroductionApp;
 			sourceTree = "<group>";
@@ -414,10 +420,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA2A5A5257B5ADE004ADC40 /* UIParts.swift in Sources */,
 				0FA2A581257B506C004ADC40 /* FaceRedFieldViewController.swift in Sources */,
 				0FA3CF2A25791EE40014379F /* PlayFieldViewController.swift in Sources */,
 				0FA3CEBC2577C69A0014379F /* ViewController.swift in Sources */,
 				0FA3CF1D25791B260014379F /* BaseViewController.swift in Sources */,
+				0F794121257B813300FEAF91 /* AllMembersShowUpViewController.swift in Sources */,
 				0FA3CEB82577C69A0014379F /* AppDelegate.swift in Sources */,
 				0FA3CF2F257920E80014379F /* AlertUtil.swift in Sources */,
 				0FA3CEBA2577C69A0014379F /* SceneDelegate.swift in Sources */,

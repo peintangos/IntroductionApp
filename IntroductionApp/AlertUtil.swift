@@ -13,7 +13,7 @@ class AlertUtil{
         var alert = UIAlertController(title: "参加人数を入力してね", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "４人", style: UIAlertAction.Style.default, handler: { (action) in
             let pf = PlayFieldViewController()
-            pf.modalPresentationStyle = .fullScreen
+            pf.modalPresentationStyle = .formSheet
             vc.present(pf, animated: true, completion: nil)
         }))
         vc.present(alert, animated: true, completion: nil)
