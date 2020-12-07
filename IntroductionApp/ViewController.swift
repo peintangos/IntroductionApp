@@ -10,13 +10,39 @@ import YogaKit
 import RxSwift
 import RxCocoa
 
+var safeAreaTop:Int?
+var safeAreaBottom:Int?
 class ViewController: UIViewController {
     
     let dispose = DisposeBag()
+    let parts = UIParts()
+    var imageView:UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+//        makeLayout()
+//        imageView = UIImageView(frame: self.view.frame)
+//        imageView.image = UIImage(named: "background_bar")
+//        imageView.alpha = 0.7
+//        imageView.contentMode = .scaleAspectFit
+//        self.view.addSubview(imageView)
+//        self.view.sendSubviewToBack(imageView)
+//        print(self.imageView.frame)
+    }
+    override func viewWillLayoutSubviews() {
+        safeAreaTop = Int(self.view.safeAreaInsets.top)
+        safeAreaBottom = Int(self.view.safeAreaInsets.bottom)
         makeLayout()
+        imageView = UIImageView(frame: self.view.frame)
+        imageView.image = UIImage(named: "background_bar")
+        imageView.alpha = 0.7
+        imageView.contentMode = .scaleAspectFit
+        self.view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
+        print(self.imageView.frame)
+        
     }
     func makeLayout(){
         view.configureLayout { (layout) in
@@ -26,45 +52,42 @@ class ViewController: UIViewController {
           layout.alignItems = .center
         layout.justifyContent = .center
         }
-        view.backgroundColor = .white
+//        背景色を白にしないと、画面が真っ黒になってしまう。
+//        view.backgroundColor = .white
         
-        let contentView = UIView()
-        contentView.backgroundColor = .red
-        contentView.configureLayout { (layout) in
-            layout.isEnabled = true
-            layout.width = 100
-            layout.height = 100
-            layout.flexDirection = .row
-            layout.justifyContent = .center
-            layout.alignItems = .center
-        }
-        let leftContentview = UIButton()
-        leftContentview.configureLayout { (layout) in
-            layout.isEnabled = true
-            layout.width = 30
-            layout.height = 30
-        }
-        leftContentview.backgroundColor = .black
-        let rightContentview = UIButton()
-        rightContentview.configureLayout { (layout) in
-            layout.isEnabled = true
-            layout.width = 30
-            layout.height = 30
-        }
-        rightContentview.backgroundColor = .blue
-        contentView.addSubview(leftContentview)
-        contentView.addSubview(rightContentview)
+        let contentView = parts.makeContetnView(vc:self)
+        let leftContentView = parts.makeTopFieldLeftButton()
+        let rightContentView = parts.makeTopFieldRightButton()
+        let title = parts.makeTitle(vc: self)
+        
+        contentView.addSubview(leftContentView)
+        contentView.addSubview(rightContentView)
+        view.addSubview(title)
         view.addSubview(contentView)
-        view.yoga.applyLayout(preservingOrigin: true)
         
-        rightContentview.rx.tap.subscribe { (action) in
-            AlertUtil().makeAlert(vc: self)
-        }.disposed(by: dispose)
-        
-        leftContentview.rx.tap.subscribe { (action) in
-            let fv = FaceRedFieldViewController()
-            self.present(fv, animated: true, completion: nil)
+//        練習用に作る後で消す
+        let tempo = parts.button(vc: self)
+        contentView.addSubview(tempo)
+        tempo.rx.tap.subscribe { (action) in
+            let am = AllMembersShowUpViewController()
+            am.modalPresentationStyle = .pageSheet
+            self.present(am, animated: true, completion: nil)
         }
+        
+        view.yoga.applyLayout(preservingOrigin: true)
+
+//        Rxを用いて、タップ時の画面遷移を整理
+        do{
+            rightContentView.rx.tap.subscribe { (action) in
+                AlertUtil().makeAlert(vc: self)
+            }.disposed(by: dispose)
+            
+            leftContentView.rx.tap.subscribe { (action) in
+                let fv = FaceRedFieldViewController()
+                self.present(fv, animated: true, completion: nil)
+            }.disposed(by: dispose)
+        }
+    
     }
 
 }
