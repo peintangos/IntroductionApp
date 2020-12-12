@@ -7,45 +7,102 @@
 
 import UIKit
 import YogaKit
+import RxSwift
 
 class AllMembersShowUpViewController: UIViewController {
-
+    
+    var titleLabel:UILabel!
+    var contentView:UIView!
+    var startButton:UIButton!
+    let dispose = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
         self.view.backgroundColor = .white
         view.configureLayout { (layout) in
         layout.isEnabled = true
         layout.width = YGValue(self.view.bounds.size.width)
         layout.height = YGValue(self.view.bounds.size.height)
+        layout.alignItems = .center
+            layout.flexWrap = .wrap
         }
-        let first1 = parts.exampleTitle(vc:self)
-        let first2 = parts.example(vc: self)
-        let first3 = parts.example(vc: self)
         
-        let second1 = parts.example2(vc: self)
-        let second2 = parts.example2(vc: self)
-        let second3 = parts.example2(vc: self)
-        let second4 = parts.example2(vc: self)
-        let second5 = parts.example2(vc: self)
-        let second6 = parts.example2(vc: self)
+        titleLabel = UILabel()
+        titleLabel.backgroundColor = .brown
+        titleLabel.text = "今夜の参加者一覧"
+        titleLabel.font = UIFont.systemFont(ofSize: 16)
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.marginTop = 50
+            layout.width = YGValue(headerWidth)
+            layout.height = YGValue(headerHeight)
+        }
         
-        first2.addSubview(second1)
-        first2.addSubview(second2)
-        first2.addSubview(second3)
-        first2.addSubview(second4)
-        first2.addSubview(second5)
-        first2.addSubview(second6)
+        contentView = UIView()
+        contentView.backgroundColor = .black
+        contentView.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.flexWrap = .wrap
+            layout.flexDirection = .row
+            layout.justifyContent = .center
+            layout.height = YGValue(halfViewHeight)
+            layout.marginTop = 50
+            layout.alignItems = .center
+        }
+        memberList.forEach { (player) in
+            let eachView = UIView()
+            eachView.configureLayout { (layout) in
+                layout.isEnabled = true
+                layout.flexShrink = 1
+            }
+            let nameLabel = UILabel()
+            nameLabel.textAlignment = .center
+            nameLabel.text = player.getName()
+            nameLabel.configureLayout { (layout) in
+                layout.isEnabled = true
+            }
+            let eachViewImage = UIImageView()
+            eachViewImage.configureLayout { (layout) in
+                layout.isEnabled = true
+                layout.width = YGValue(eachPlayerTileWidth)
+                layout.height = YGValue(eachPlayerTileHeight)
+                layout.marginTop = 10
+            }
+            eachViewImage.image = player.getImage()
+            eachViewImage.contentMode = .scaleAspectFit
+            eachView.addSubview(eachViewImage)
+            eachView.addSubview(nameLabel)
+            contentView.addSubview(eachView)
+        }
         
-        view.addSubview(first1)
-        view.addSubview(first2)
-        view.addSubview(first3)
+        startButton = UIButton()
+        startButton.backgroundColor = .blue
+        startButton.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.marginTop = 50
+            layout.height = YGValue(footerButtonHeight)
+            layout.width = YGValue(headerWidth)
+        }
+        
+        view.addSubview(titleLabel)
+        view.addSubview(contentView)
+        view.addSubview(startButton)
         
         view.yoga.applyLayout(preservingOrigin: true)
-        
+     
+        doRouter()
     }
-    let parts = UIParts()
+    func doRouter(){
+        self.startButton.rx.tap.subscribe { (action) in
+            AlertUtil().makeTurn(vc: self, nextVc:PlayFieldFirstViewController(),text: memberList[count].getName())
+//            TODO 人数で分岐する
+
+        }.disposed(by: dispose)
+    }
+    
     
 
     /*

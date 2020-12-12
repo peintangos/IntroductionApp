@@ -12,6 +12,26 @@ import RxCocoa
 
 var safeAreaTop:Int?
 var safeAreaBottom:Int?
+var memberList:Array<Player>!
+var headerWidth:CGFloat!
+var headerHeight:CGFloat!
+var contentWidth:CGFloat!
+var contentHeight:CGFloat!
+var footerViewWidth:CGFloat!
+var footerViewHeight:CGFloat!
+var footerButtonWidth:CGFloat!
+var footerButtonHeight:CGFloat!
+var eachPlayerTileWidth:CGFloat!
+var eachPlayerTileHeight:CGFloat!
+var halfViewWidth:CGFloat!
+var halfViewHeight:CGFloat!
+var playerNumbers:Int?
+var questionNumberTotal = 4
+//プレイヤーのターンを数える
+var count = 0
+//各プレイヤーの質問目数をカウントする
+var questionNumber = 0
+var questionNumberReal = 0
 class ViewController: UIViewController {
     
     let dispose = DisposeBag()
@@ -20,16 +40,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        memberList = Array()
     }
     override func viewWillAppear(_ animated: Bool) {
-//        makeLayout()
-//        imageView = UIImageView(frame: self.view.frame)
-//        imageView.image = UIImage(named: "background_bar")
-//        imageView.alpha = 0.7
-//        imageView.contentMode = .scaleAspectFit
-//        self.view.addSubview(imageView)
-//        self.view.sendSubviewToBack(imageView)
-//        print(self.imageView.frame)
+        headerWidth = self.view.bounds.size.width / 1.5
+        headerHeight = self.view.bounds.size.width / 4
+        contentWidth = self.view.bounds.size.width / 1.2
+        contentHeight = self.view.bounds.size.width / 1.2
+        footerViewWidth = self.view.bounds.size.width
+        footerViewHeight = self.view.bounds.size.height / 5
+        footerButtonWidth = self.view.bounds.size.width / 4
+        footerButtonHeight = self.view.bounds.size.width / 4
+        eachPlayerTileWidth = self.view.bounds.size.width / 2.5
+        eachPlayerTileHeight = self.view.bounds.size.width / 2.5
+        halfViewWidth = self.view.bounds.width / 2
+        halfViewHeight = self.view.bounds.height / 2
     }
     override func viewWillLayoutSubviews() {
         safeAreaTop = Int(self.view.safeAreaInsets.top)
@@ -41,7 +66,6 @@ class ViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         self.view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
-        print(self.imageView.frame)
         
     }
     func makeLayout(){
@@ -65,14 +89,14 @@ class ViewController: UIViewController {
         view.addSubview(title)
         view.addSubview(contentView)
         
-//        練習用に作る後で消す
-        let tempo = parts.button(vc: self)
-        contentView.addSubview(tempo)
-        tempo.rx.tap.subscribe { (action) in
-            let am = AllMembersShowUpViewController()
-            am.modalPresentationStyle = .pageSheet
-            self.present(am, animated: true, completion: nil)
-        }
+////        練習用に作る後で消す
+//        let tempo = parts.button(vc: self)
+//        contentView.addSubview(tempo)
+//        tempo.rx.tap.subscribe { (action) in
+//            let am = AllMembersShowUpViewController()
+//            am.modalPresentationStyle = .pageSheet
+//            self.present(am, animated: true, completion: nil)
+//        }
         
         view.yoga.applyLayout(preservingOrigin: true)
 

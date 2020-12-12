@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0F794121257B813300FEAF91 /* AllMembersShowUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794120257B813300FEAF91 /* AllMembersShowUpViewController.swift */; };
+		0F7941372584920200FEAF91 /* BeforePlaySeoncdPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7941362584920200FEAF91 /* BeforePlaySeoncdPlayer.swift */; };
+		0F79413C2584935A00FEAF91 /* BeforePlayFirstPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79413B2584935A00FEAF91 /* BeforePlayFirstPlayer.swift */; };
+		0F7941412584976400FEAF91 /* BeforePlayThirdPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7941402584976400FEAF91 /* BeforePlayThirdPlayer.swift */; };
+		0F794146258497F400FEAF91 /* BeforePlayFourthPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794145258497F400FEAF91 /* BeforePlayFourthPlayer.swift */; };
+		0F79414B258499C100FEAF91 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79414A258499C100FEAF91 /* Player.swift */; };
+		0F7941502584ABEF00FEAF91 /* PlayFieldFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79414F2584ABEF00FEAF91 /* PlayFieldFirstViewController.swift */; };
+		0F79415D2584ACD600FEAF91 /* PlayFieldSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79415C2584ACD600FEAF91 /* PlayFieldSecondViewController.swift */; };
+		0F7941622584B18600FEAF91 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7941612584B18600FEAF91 /* Strings.swift */; };
+		0F7941672584CD1D00FEAF91 /* PlayFieldThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7941662584CD1D00FEAF91 /* PlayFieldThirdViewController.swift */; };
+		0F79416C2584CD3A00FEAF91 /* PlayFieldFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79416B2584CD3A00FEAF91 /* PlayFieldFourthViewController.swift */; };
+		0F7941712584E6FF00FEAF91 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7941702584E6FF00FEAF91 /* ResultsViewController.swift */; };
 		0FA2A581257B506C004ADC40 /* FaceRedFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */; };
 		0FA2A5A5257B5ADE004ADC40 /* UIParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */; };
 		0FA3CEB82577C69A0014379F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CEB72577C69A0014379F /* AppDelegate.swift */; };
@@ -18,7 +29,7 @@
 		0FA3CECF2577C69C0014379F /* IntroductionAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CECE2577C69C0014379F /* IntroductionAppTests.swift */; };
 		0FA3CEDA2577C69C0014379F /* IntroductionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CED92577C69C0014379F /* IntroductionAppUITests.swift */; };
 		0FA3CF1D25791B260014379F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CF1C25791B260014379F /* BaseViewController.swift */; };
-		0FA3CF2A25791EE40014379F /* PlayFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CF2925791EE40014379F /* PlayFieldViewController.swift */; };
+		0FA3CF2A25791EE40014379F /* BeforePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CF2925791EE40014379F /* BeforePlayViewController.swift */; };
 		0FA3CF2F257920E80014379F /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CF2E257920E80014379F /* AlertUtil.swift */; };
 		4375015FD60248A1B74AFCD5 /* Pods_IntroductionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C4AAEF45C510371B78B0A8 /* Pods_IntroductionApp.framework */; };
 		5DBC36C06D00E1CDF24105FC /* Pods_IntroductionApp_IntroductionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 851960136F9B5437DB228819 /* Pods_IntroductionApp_IntroductionAppUITests.framework */; };
@@ -44,6 +55,17 @@
 
 /* Begin PBXFileReference section */
 		0F794120257B813300FEAF91 /* AllMembersShowUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMembersShowUpViewController.swift; sourceTree = "<group>"; };
+		0F7941362584920200FEAF91 /* BeforePlaySeoncdPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforePlaySeoncdPlayer.swift; sourceTree = "<group>"; };
+		0F79413B2584935A00FEAF91 /* BeforePlayFirstPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforePlayFirstPlayer.swift; sourceTree = "<group>"; };
+		0F7941402584976400FEAF91 /* BeforePlayThirdPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforePlayThirdPlayer.swift; sourceTree = "<group>"; };
+		0F794145258497F400FEAF91 /* BeforePlayFourthPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforePlayFourthPlayer.swift; sourceTree = "<group>"; };
+		0F79414A258499C100FEAF91 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0F79414F2584ABEF00FEAF91 /* PlayFieldFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFieldFirstViewController.swift; sourceTree = "<group>"; };
+		0F79415C2584ACD600FEAF91 /* PlayFieldSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFieldSecondViewController.swift; sourceTree = "<group>"; };
+		0F7941612584B18600FEAF91 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		0F7941662584CD1D00FEAF91 /* PlayFieldThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFieldThirdViewController.swift; sourceTree = "<group>"; };
+		0F79416B2584CD3A00FEAF91 /* PlayFieldFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFieldFourthViewController.swift; sourceTree = "<group>"; };
+		0F7941702584E6FF00FEAF91 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRedFieldViewController.swift; sourceTree = "<group>"; };
 		0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIParts.swift; sourceTree = "<group>"; };
 		0FA3CEB42577C69A0014379F /* IntroductionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroductionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +82,7 @@
 		0FA3CED92577C69C0014379F /* IntroductionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionAppUITests.swift; sourceTree = "<group>"; };
 		0FA3CEDB2577C69C0014379F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA3CF1C25791B260014379F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		0FA3CF2925791EE40014379F /* PlayFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFieldViewController.swift; sourceTree = "<group>"; };
+		0FA3CF2925791EE40014379F /* BeforePlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforePlayViewController.swift; sourceTree = "<group>"; };
 		0FA3CF2E257920E80014379F /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		3BCC817149C074A57B360EEE /* Pods-IntroductionAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntroductionAppTests.release.xcconfig"; path = "Target Support Files/Pods-IntroductionAppTests/Pods-IntroductionAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		42E1773C1C770D5EEAD7151F /* Pods-IntroductionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntroductionApp.debug.xcconfig"; path = "Target Support Files/Pods-IntroductionApp/Pods-IntroductionApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,11 +155,22 @@
 				0FA3CEC02577C69C0014379F /* Assets.xcassets */,
 				0FA3CEC22577C69C0014379F /* LaunchScreen.storyboard */,
 				0FA3CEC52577C69C0014379F /* Info.plist */,
-				0FA3CF2925791EE40014379F /* PlayFieldViewController.swift */,
+				0FA3CF2925791EE40014379F /* BeforePlayViewController.swift */,
 				0FA3CF2E257920E80014379F /* AlertUtil.swift */,
 				0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */,
 				0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */,
 				0F794120257B813300FEAF91 /* AllMembersShowUpViewController.swift */,
+				0F7941362584920200FEAF91 /* BeforePlaySeoncdPlayer.swift */,
+				0F79413B2584935A00FEAF91 /* BeforePlayFirstPlayer.swift */,
+				0F7941402584976400FEAF91 /* BeforePlayThirdPlayer.swift */,
+				0F794145258497F400FEAF91 /* BeforePlayFourthPlayer.swift */,
+				0F79414A258499C100FEAF91 /* Player.swift */,
+				0F79414F2584ABEF00FEAF91 /* PlayFieldFirstViewController.swift */,
+				0F79415C2584ACD600FEAF91 /* PlayFieldSecondViewController.swift */,
+				0F7941612584B18600FEAF91 /* Strings.swift */,
+				0F7941662584CD1D00FEAF91 /* PlayFieldThirdViewController.swift */,
+				0F79416B2584CD3A00FEAF91 /* PlayFieldFourthViewController.swift */,
+				0F7941702584E6FF00FEAF91 /* ResultsViewController.swift */,
 			);
 			path = IntroductionApp;
 			sourceTree = "<group>";
@@ -420,15 +453,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F79413C2584935A00FEAF91 /* BeforePlayFirstPlayer.swift in Sources */,
 				0FA2A5A5257B5ADE004ADC40 /* UIParts.swift in Sources */,
 				0FA2A581257B506C004ADC40 /* FaceRedFieldViewController.swift in Sources */,
-				0FA3CF2A25791EE40014379F /* PlayFieldViewController.swift in Sources */,
+				0F7941712584E6FF00FEAF91 /* ResultsViewController.swift in Sources */,
+				0F7941412584976400FEAF91 /* BeforePlayThirdPlayer.swift in Sources */,
+				0F79414B258499C100FEAF91 /* Player.swift in Sources */,
+				0F7941672584CD1D00FEAF91 /* PlayFieldThirdViewController.swift in Sources */,
+				0FA3CF2A25791EE40014379F /* BeforePlayViewController.swift in Sources */,
 				0FA3CEBC2577C69A0014379F /* ViewController.swift in Sources */,
+				0F7941502584ABEF00FEAF91 /* PlayFieldFirstViewController.swift in Sources */,
 				0FA3CF1D25791B260014379F /* BaseViewController.swift in Sources */,
 				0F794121257B813300FEAF91 /* AllMembersShowUpViewController.swift in Sources */,
 				0FA3CEB82577C69A0014379F /* AppDelegate.swift in Sources */,
+				0F79415D2584ACD600FEAF91 /* PlayFieldSecondViewController.swift in Sources */,
+				0F7941622584B18600FEAF91 /* Strings.swift in Sources */,
+				0F7941372584920200FEAF91 /* BeforePlaySeoncdPlayer.swift in Sources */,
 				0FA3CF2F257920E80014379F /* AlertUtil.swift in Sources */,
+				0F794146258497F400FEAF91 /* BeforePlayFourthPlayer.swift in Sources */,
 				0FA3CEBA2577C69A0014379F /* SceneDelegate.swift in Sources */,
+				0F79416C2584CD3A00FEAF91 /* PlayFieldFourthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
