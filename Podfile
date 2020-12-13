@@ -4,7 +4,7 @@
 target 'IntroductionApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 10.4.0'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Alamofire'

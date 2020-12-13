@@ -16,11 +16,13 @@ class PlayFieldFourthViewController :BaseViewController{
         doLayout()
         doRouter()
         makeQuestionTitle(text:Strings.qustion4)
-        makeQuestionContent(text:Strings.content4)
+        makeQuestionContent(text:Strings.contentPlay)
         maketTitle(text: memberList[count].getName())
         self.answerButton.addTarget(self, action: #selector(modal), for: .touchUpInside)
     }
     @objc func modal(){
-        AlertUtil().makeLastAnswer(vc: self)
+        AlertUtil().makeLastAnswer(vc: self,databaseDriver: DatabaseDriver(),player: memberList[count])
+        
+
     }
 }

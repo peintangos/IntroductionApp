@@ -8,6 +8,7 @@
 import UIKit
 import YogaKit
 import RxSwift
+import RealmSwift
 import RxCocoa
 
 var safeAreaTop:Int?
@@ -32,15 +33,18 @@ var count = 0
 //各プレイヤーの質問目数をカウントする
 var questionNumber = 0
 var questionNumberReal = 0
+var gameNumber = 0
 class ViewController: UIViewController {
     
     let dispose = DisposeBag()
     let parts = UIParts()
-    var imageView:UIImageView!
+//    var imageView:UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         memberList = Array()
+        gameNumber = Int.random(in: 1..<1000000)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         headerWidth = self.view.bounds.size.width / 1.5
@@ -60,12 +64,13 @@ class ViewController: UIViewController {
         safeAreaTop = Int(self.view.safeAreaInsets.top)
         safeAreaBottom = Int(self.view.safeAreaInsets.bottom)
         makeLayout()
-        imageView = UIImageView(frame: self.view.frame)
-        imageView.image = UIImage(named: "background_bar")
-        imageView.alpha = 0.7
-        imageView.contentMode = .scaleAspectFit
-        self.view.addSubview(imageView)
-        self.view.sendSubviewToBack(imageView)
+//        なぜか、こいつがあるせいでサスペンドしたときに落ちるので画像は生成ないことにする
+//        imageView = UIImageView(frame: self.view.frame)
+//        imageView.image = UIImage(named: "background_bar")
+//        imageView.alpha = 0.7
+//        imageView.contentMode = .scaleAspectFit
+//        self.view.addSubview(imageView)
+//        self.view.sendSubviewToBack(imageView)
         
     }
     func makeLayout(){
@@ -89,14 +94,13 @@ class ViewController: UIViewController {
         view.addSubview(title)
         view.addSubview(contentView)
         
-////        練習用に作る後で消す
-//        let tempo = parts.button(vc: self)
-//        contentView.addSubview(tempo)
-//        tempo.rx.tap.subscribe { (action) in
-//            let am = AllMembersShowUpViewController()
-//            am.modalPresentationStyle = .pageSheet
-//            self.present(am, animated: true, completion: nil)
-//        }
+//        練習用に作る後で消す
+        let tempo = parts.button(vc: self)
+        contentView.addSubview(tempo)
+        tempo.rx.tap.subscribe { (action) in
+            let am = ResultsViewController()
+            self.present(am, animated: true, completion: nil)
+        }
         
         view.yoga.applyLayout(preservingOrigin: true)
 
@@ -113,6 +117,7 @@ class ViewController: UIViewController {
         }
     
     }
+
 
 }
 

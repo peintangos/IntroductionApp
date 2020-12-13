@@ -17,12 +17,12 @@ class PlayFieldFirstViewController :BaseViewController{
         doLayout()
         doRouter()
         makeQuestionTitle(text:Strings.qustion1)
-        makeQuestionContent(text:Strings.content1)
+        makeQuestionContent(text:Strings.contentGaijin)
         maketTitle(text: memberList[count].getName())
         self.answerButton.addTarget(self, action: #selector(modal), for: .touchUpInside)
     }
 
     @objc func modal(){
-        AlertUtil().makeAnswer(vc: self,nextVc: PlayFieldSecondViewController())
+        AlertUtil().makeAnswer(vc: self,nextVc: PlayFieldSecondViewController(),databaseDriver: DatabaseDriver(),player: memberList[count])
     }
 }
