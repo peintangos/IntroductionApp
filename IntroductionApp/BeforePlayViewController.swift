@@ -12,6 +12,7 @@ import RxSwift
 class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     var yourName:UILabel!
+    var gender:Int!
     var cameraView:UIImageView!
     var footerButtonsView:UIView!
     var retakeButton:UIButton!
@@ -22,7 +23,9 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
+    
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         isPicked = true
@@ -33,21 +36,13 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         if let pickedImage = info[.originalImage] as? UIImage {
             cameraView.contentMode = .scaleAspectFit
             cameraView.image = pickedImage
-            saveMember(player: Player(name:yourName.text!,image:pickedImage))
+            saveMember(player: Player(name:yourName.text!,image:pickedImage,gender:gender))
         }
         picker.dismiss(animated: true, completion: nil)
     }
 
     
     func doLayout(){
-//        let headerWidth = self.view.bounds.size.width / 1.5
-//        let headerHeight = self.view.bounds.size.width / 4
-//        let contentWidth = self.view.bounds.size.width / 1.2
-//        let contentHeight = self.view.bounds.size.width / 1.2
-//        let footerViewWidth = self.view.bounds.size.width
-//        let footerViewHeight = self.view.bounds.size.height / 5
-//        let footerButtonWidth = self.view.bounds.size.width / 4
-//        let footerButtonHeight = self.view.bounds.size.width / 4
     view.configureLayout { (layout) in
         layout.isEnabled = true
         layout.width = YGValue(self.view.bounds.size.width)
@@ -89,16 +84,18 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
             layout.flexDirection = .row
             layout.alignItems = .center
         }
-        self.retakeButton = UIButton()
-        self.retakeButton.backgroundColor = .magenta
-        self.retakeButton.configureLayout { (layout) in
-            layout.isEnabled = true
-            layout.height = YGValue(footerButtonHeight)
-            layout.width = YGValue(footerButtonWidth)
-        }
-        footerButtonsView.addSubview(self.retakeButton)
+//        Retakeボタンは要らないという判断
+//        self.retakeButton = UIButton()
+//        self.retakeButton.backgroundColor = .magenta
+//        self.retakeButton.configureLayout { (layout) in
+//            layout.isEnabled = true
+//            layout.height = YGValue(footerButtonHeight)
+//            layout.width = YGValue(footerButtonWidth)
+//        }
+//        footerButtonsView.addSubview(self.retakeButton)
         self.nextButton = UIButton()
         self.nextButton.backgroundColor = .purple
+        self.nextButton.setTitle(" 次の人へ！", for: UIControl.State.normal)
         self.nextButton.configureLayout { (layout) in
             layout.isEnabled = true
             layout.height = YGValue(footerButtonHeight)
@@ -120,18 +117,19 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
                     let alert = UIAlertController(title: "名前を入力してね", message: nil, preferredStyle: UIAlertController.Style.alert)
                     alert.addTextField { (text) in
                         text.delegate = self
-                        
                     }
                     alert.addAction(UIAlertAction.init(title: "完了", style: UIAlertAction.Style.default, handler: { (action) in
-                        self.yourName.text = alert.textFields![0].text
-                        let jidoriAlert = UIAlertController(title: "自撮りに進むよ！盛れるように準備してね", message: nil, preferredStyle: .alert)
-                        jidoriAlert.addAction(UIAlertAction(title: "自撮りに進む", style: .default, handler: { (UIAlertAction) in
-                            let picker = UIImagePickerController()
-                            picker.sourceType = .camera
-                            picker.delegate = self
-                            self.present(picker, animated: true, completion: nil)
+                        self.yourName.text = alert.textFields![0].text! + "🍺"
+                        let genderAlert = UIAlertController(title: "あなたの性別を教えてください", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+                        genderAlert.addAction(UIAlertAction.init(title: "男性", style: UIAlertAction.Style.default, handler: { (action) in
+                            self.gender = 0
+                            self.takePictureAlert()
                         }))
-                        self.present(jidoriAlert, animated: true, completion: nil)
+                        genderAlert.addAction(UIAlertAction.init(title: "女性", style: UIAlertAction.Style.default, handler: { (action) in
+                            self.gender = 1
+                            self.takePictureAlert()
+                        }))
+                        self.present(genderAlert, animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
                 }else {
@@ -140,6 +138,16 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     }
     func saveMember(player:Player){
         memberList.append(player)
+    }
+    func takePictureAlert(){
+        let jidoriAlert = UIAlertController(title: "自撮りに進むよ！盛れるように準備してね", message: nil, preferredStyle: .alert)
+        jidoriAlert.addAction(UIAlertAction(title: "自撮りに進む", style: .default, handler: { (UIAlertAction) in
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        }))
+        self.present(jidoriAlert, animated: true, completion: nil)
     }
 
     

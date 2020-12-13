@@ -16,12 +16,12 @@ class PlayFieldThirdViewController:BaseViewController{
         doLayout()
         doRouter()
         makeQuestionTitle(text:Strings.qustion3)
-        makeQuestionContent(text:Strings.content3)
+        makeQuestionContent(text:Strings.contentType)
         maketTitle(text: memberList[count].getName())
         self.answerButton.addTarget(self, action: #selector(modal), for: .touchUpInside)
     }
 
     @objc func modal(){
-        AlertUtil().makeAnswer(vc: self,nextVc: PlayFieldFourthViewController())
+        AlertUtil().makeAnswerOtherGender(vc: self,nextVc: PlayFieldFourthViewController(),databaseDriver: DatabaseDriver(),player:memberList[count])
     }
 }

@@ -9,17 +9,18 @@ import UIKit
 import YogaKit
 import RxSwift
 
+var parentView:UIViewController!
 class AllMembersShowUpViewController: UIViewController {
     
     var titleLabel:UILabel!
-    var contentView:UIView!
+    var contentView:UIScrollView!
     var startButton:UIButton!
     let dispose = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        parentView = self
         self.view.backgroundColor = .white
         view.configureLayout { (layout) in
         layout.isEnabled = true
@@ -40,8 +41,9 @@ class AllMembersShowUpViewController: UIViewController {
             layout.width = YGValue(headerWidth)
             layout.height = YGValue(headerHeight)
         }
-        
-        contentView = UIView()
+
+        contentView = UIScrollView()
+        contentView.contentSize =  CGSize(width:self.view.frame.width, height:eachPlayerTileHeight * 5) 
         contentView.backgroundColor = .black
         contentView.configureLayout { (layout) in
             layout.isEnabled = true
@@ -80,6 +82,8 @@ class AllMembersShowUpViewController: UIViewController {
         
         startButton = UIButton()
         startButton.backgroundColor = .blue
+        startButton.setTitle("第一印象ゲームを始める🍻", for: UIControl.State.normal)
+        startButton.setTitleColor(.white, for: .normal)
         startButton.configureLayout { (layout) in
             layout.isEnabled = true
             layout.marginTop = 50

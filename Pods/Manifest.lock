@@ -12,11 +12,11 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
-  - Realm (10.2.0):
-    - Realm/Headers (= 10.2.0)
-  - Realm/Headers (10.2.0)
-  - RealmSwift (10.2.0):
-    - Realm (= 10.2.0)
+  - Realm (10.4.0):
+    - Realm/Headers (= 10.4.0)
+  - Realm/Headers (10.4.0)
+  - RealmSwift (10.4.0):
+    - Realm (= 10.4.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -31,7 +31,7 @@ DEPENDENCIES:
   - Alamofire
   - ChameleonFramework/Swift
   - PromiseKit (~> 6.8)
-  - RealmSwift
+  - RealmSwift (~> 10.4.0)
   - RxCocoa
   - RxSwift
   - YogaKit (~> 1.5)
@@ -53,14 +53,14 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
-  Realm: d7914ebf66bb182469726f997c4c38eff286aab0
-  RealmSwift: aad08b7dc8c732b7b5794286e9df83739bf834f1
+  Realm: d8466b2238f034a5ff7a031aed63b7dacdf0dd10
+  RealmSwift: 37a93ae742667948cc094a3c6ae3d006db32b66f
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: dc424c12a46e8603f172f3ae8ef279e76fb312d1
+PODFILE CHECKSUM: 81719d2cfeb45afb9f3bc05a00a58eeaf343991e
 
 COCOAPODS: 1.10.0

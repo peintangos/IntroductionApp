@@ -84,6 +84,7 @@ class BaseViewController: UIViewController {
         
         answerButton = UIButton()
         answerButton.backgroundColor = .black
+        answerButton.setTitle("選ぶ！🍻", for: UIControl.State.normal)
         answerButton.configureLayout { (layout) in
             layout.marginTop = 50
             layout.isEnabled = true

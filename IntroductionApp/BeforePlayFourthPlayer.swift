@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 class BeforePlayFourthPlayer :BeforePlayViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,13 @@ class BeforePlayFourthPlayer :BeforePlayViewController{
     override func doRouter() {
         self.nextButton.rx.tap.subscribe { (action) in
             self.dismiss(animated: true, completion: nil)
-            let vc = AllMembersShowUpViewController()
+            var vc:UIViewController!
+            if playerNumbers! == 4 {
+                vc = AllMembersShowUpViewController()
+                vc.modalPresentationStyle = .fullScreen
+            }else {
+                vc = BeforePlayFifthPlayer()
+            }
             vc.modalPresentationStyle = .fullScreen
             self.presentingViewController!.present(vc, animated: true, completion: nil)
         }.disposed(by: dispose)
