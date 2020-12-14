@@ -13,11 +13,10 @@ class PlayFieldFirstViewController :BaseViewController{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .white
+//        self.view.backgroundColor = .systemPink
         doLayout()
         doRouter()
-        makeQuestionTitle(text:Strings.qustion1)
-        makeQuestionContent(text:Strings.contentGaijin)
+        makeQuestionTitle(text:Strings.qustion1 + Strings.contentGaijin)
         maketTitle(text: memberList[count].getName())
         self.answerButton.addTarget(self, action: #selector(modal), for: .touchUpInside)
     }

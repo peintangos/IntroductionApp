@@ -12,15 +12,18 @@ class PlayFieldSecondViewController:BaseViewController{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        self.view.backgroundColor = .systemPink
         doLayout()
         doRouter()
-        makeQuestionTitle(text:Strings.qustion2)
-        makeQuestionContent(text:Strings.contentAlcohol)
+        makeQuestionTitle(text:Strings.qustion2 + Strings.contentAlcohol)
+//        makeQuestionContent(text:Strings.contentAlcohol)
         maketTitle(text: memberList[count].getName())
         self.answerButton.addTarget(self, action: #selector(modal), for: .touchUpInside)
     }
 
     @objc func modal(){
-        AlertUtil().makeAnswer(vc: self,nextVc: PlayFieldThirdViewController(),databaseDriver: DatabaseDriver(),player: memberList[count])
+        let vc = PlayFieldThirdViewController()
+        vc.modalPresentationStyle = .fullScreen
+        AlertUtil().makeAnswer(vc: self,nextVc: vc,databaseDriver: DatabaseDriver(),player: memberList[count])
     }
 }

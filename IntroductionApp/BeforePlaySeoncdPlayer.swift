@@ -12,7 +12,7 @@ import RxSwift
 class BeforePlaySeoncdPlayer:BeforePlayViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+//        self.view.backgroundColor = .red
         // Do any additional setup after loading the view.
         doLayout()
         doRouter()
@@ -24,6 +24,7 @@ class BeforePlaySeoncdPlayer:BeforePlayViewController{
         self.nextButton.rx.tap.subscribe { (action) in
             self.dismiss(animated: true, completion: nil)
             let vc = BeforePlayThirdPlayer()
+            vc.modalPresentationStyle = .fullScreen
             self.presentingViewController!.present(vc, animated: true, completion: nil)
         }.disposed(by: dispose)
     }

@@ -10,7 +10,7 @@ import RxSwift
 class BeforePlayThirdPlayer:BeforePlayViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+//        self.view.backgroundColor = .red
         // Do any additional setup after loading the view.
         doLayout()
         doRouter()
@@ -21,7 +21,13 @@ class BeforePlayThirdPlayer:BeforePlayViewController{
     override func doRouter() {
         self.nextButton.rx.tap.subscribe { (action) in
             self.dismiss(animated: true, completion: nil)
-            let vc = BeforePlayFourthPlayer()
+            var vc:UIViewController!
+            if playerNumbers == 3 {
+                vc = AllMembersShowUpViewController()
+            }else {
+                vc = BeforePlayFourthPlayer()
+            }
+            vc.modalPresentationStyle = .fullScreen
             self.presentingViewController!.present(vc, animated: true, completion: nil)
         }.disposed(by: dispose)
 }

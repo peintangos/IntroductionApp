@@ -75,7 +75,7 @@ class UIParts: NSObject {
             layout.width = YGValue(vc.view.bounds.size.width / 1.5)
             layout.height = YGValue(vc.view.bounds.size.width / 3)
             layout.justifyContent = .center
-            layout.marginTop = YGValue(integerLiteral: 210 + safeAreaTop!)
+            layout.marginTop = YGValue(integerLiteral: 280 + safeAreaTop!)
         }
         titleLabel.text = "Introduction Game"
         titleLabel.textColor = .white
@@ -136,4 +136,5 @@ class UIParts: NSObject {
         view.backgroundColor = UIColor.brown
         return view
     }
+    
 }

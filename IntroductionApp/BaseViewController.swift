@@ -17,13 +17,13 @@ class BaseViewController: UIViewController {
     var titleLabel:UILabel!
     var contentView:UIView!
     var contentLabelTitle:UILabel!
-    var contentLabel:UILabel!
+    var contentLabel:UIScrollView!
     var answerButton:UIButton!
     let dispose = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemIndigo
         // Do any additional setup after loading the view.
     }
     func doLayout(){
@@ -35,8 +35,11 @@ class BaseViewController: UIViewController {
             layout.alignItems = .center
         }
         titleLabel = UILabel()
-        titleLabel.backgroundColor = .blue
+        titleLabel.backgroundColor = .systemIndigo
         titleLabel.textColor = .white
+        titleLabel.layer.borderColor = UIColor.white.cgColor
+        titleLabel.layer.borderWidth = 1
+        titleLabel.layer.cornerRadius = 10
         titleLabel.font = UIFont.systemFont(ofSize: 26)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
@@ -58,8 +61,8 @@ class BaseViewController: UIViewController {
         view.addSubview(contentView)
         
         contentLabelTitle = UILabel()
-        contentLabelTitle.backgroundColor = .systemPink
-        contentLabelTitle.textColor = .white
+        contentLabelTitle.backgroundColor = .white
+        contentLabelTitle.textColor = .systemGreen
         contentLabelTitle.font = UIFont.systemFont(ofSize: 26)
         contentLabelTitle.textAlignment = .center
         contentLabelTitle.numberOfLines = 0
@@ -69,24 +72,56 @@ class BaseViewController: UIViewController {
         }
         contentView.addSubview(contentLabelTitle)
         
-        contentLabel = UILabel()
+//        contentLabel = UILabel()
+        contentLabel = UIScrollView()
+        contentLabel.contentSize =  CGSize(width:contentWidth, height:eachPlayerTileHeight * 5)
         contentLabel.configureLayout { (layout) in
             layout.isEnabled = true
-            layout.flexGrow = 1
+            layout.flexWrap = .wrap
+            layout.flexDirection = .row
+            layout.justifyContent = .center
+            layout.height = YGValue(halfViewHeight - 100)
+            layout.alignItems = .center
         }
-        contentLabel.numberOfLines = 0
-        contentLabel.backgroundColor = .darkGray
-        contentLabel.textColor = .white
-        contentLabel.font = UIFont.systemFont(ofSize: 26)
-        contentLabel.textAlignment = .center
-        
+        memberList.forEach { (player) in
+            let eachView = UIView()
+            eachView.configureLayout { (layout) in
+                layout.isEnabled = true
+                layout.flexShrink = 1
+            }
+            let nameLabel = UILabel()
+            nameLabel.textAlignment = .center
+            nameLabel.text = player.getName()
+            nameLabel.textColor = .black
+            nameLabel.configureLayout { (layout) in
+                layout.isEnabled = true
+            }
+            let eachViewImage = UIImageView()
+            eachViewImage.configureLayout { (layout) in
+                layout.isEnabled = true
+                layout.width = YGValue(eachPlayerTileWidth)
+                layout.height = YGValue(eachPlayerTileHeight)
+                layout.marginTop = 10
+            }
+            eachViewImage.image = player.getImage()
+            eachViewImage.contentMode = .scaleAspectFit
+            eachViewImage.clipsToBounds = false
+            eachView.addSubview(eachViewImage)
+            eachView.addSubview(nameLabel)
+            contentLabel.addSubview(eachView)
+        }
+        contentLabel.backgroundColor = .white
         contentView.addSubview(contentLabel)
         
         answerButton = UIButton()
-        answerButton.backgroundColor = .black
+        answerButton.backgroundColor = .systemIndigo
+        answerButton.layer.cornerRadius = 10
+        answerButton.layer.borderColor = UIColor.white.cgColor
+        answerButton.layer.borderWidth = 1
         answerButton.setTitle("選ぶ！🍻", for: UIControl.State.normal)
         answerButton.configureLayout { (layout) in
-            layout.marginTop = 50
+//            このマージントップ100は無理やりすぎる。なぜか、画像に重なってしまう。
+            layout.marginTop = 200
             layout.isEnabled = true
             layout.height = YGValue(footerButtonHeight)
             layout.width = YGValue(headerWidth)
@@ -106,9 +141,9 @@ class BaseViewController: UIViewController {
     func makeQuestionTitle(text:String){
         contentLabelTitle.text = text
     }
-    func makeQuestionContent(text:String){
-        contentLabel.text = text
-    }
+//    func makeQuestionContent(text:String){
+//        contentLabel.text = text
+//    }
     func maketTitle(text:String){
         titleLabel.text = text
     }

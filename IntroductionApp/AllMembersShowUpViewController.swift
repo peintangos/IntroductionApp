@@ -21,7 +21,7 @@ class AllMembersShowUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         parentView = self
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemIndigo
         view.configureLayout { (layout) in
         layout.isEnabled = true
         layout.width = YGValue(self.view.bounds.size.width)
@@ -31,7 +31,11 @@ class AllMembersShowUpViewController: UIViewController {
         }
         
         titleLabel = UILabel()
-        titleLabel.backgroundColor = .brown
+        titleLabel.backgroundColor = .systemIndigo
+        titleLabel.layer.borderColor = UIColor.white.cgColor
+        titleLabel.layer.borderWidth = 1
+        titleLabel.layer.cornerRadius = 10
+        titleLabel.textColor = .white
         titleLabel.text = "今夜の参加者一覧"
         titleLabel.font = UIFont.systemFont(ofSize: 16)
         titleLabel.textAlignment = NSTextAlignment.center
@@ -44,7 +48,7 @@ class AllMembersShowUpViewController: UIViewController {
 
         contentView = UIScrollView()
         contentView.contentSize =  CGSize(width:self.view.frame.width, height:eachPlayerTileHeight * 5) 
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .white
         contentView.configureLayout { (layout) in
             layout.isEnabled = true
             layout.flexWrap = .wrap
@@ -63,6 +67,7 @@ class AllMembersShowUpViewController: UIViewController {
             let nameLabel = UILabel()
             nameLabel.textAlignment = .center
             nameLabel.text = player.getName()
+            nameLabel.textColor = .systemIndigo
             nameLabel.configureLayout { (layout) in
                 layout.isEnabled = true
             }
@@ -81,7 +86,10 @@ class AllMembersShowUpViewController: UIViewController {
         }
         
         startButton = UIButton()
-        startButton.backgroundColor = .blue
+        startButton.backgroundColor = .systemIndigo
+        startButton.layer.borderColor = UIColor.white.cgColor
+        startButton.layer.borderWidth = 1
+        startButton.layer.cornerRadius = 10
         startButton.setTitle("第一印象ゲームを始める🍻", for: UIControl.State.normal)
         startButton.setTitleColor(.white, for: .normal)
         startButton.configureLayout { (layout) in

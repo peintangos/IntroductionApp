@@ -10,7 +10,7 @@ import UIKit
 class BeforePlayFourthPlayer :BeforePlayViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+//        self.view.backgroundColor = .red
         // Do any additional setup after loading the view.
         doLayout()
         doRouter()

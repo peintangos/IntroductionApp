@@ -23,7 +23,7 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.view.backgroundColor = .systemIndigo
     }
     
 
@@ -34,7 +34,8 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
         if let pickedImage = info[.originalImage] as? UIImage {
-            cameraView.contentMode = .scaleAspectFit
+            cameraView.contentMode = .scaleAspectFill
+            cameraView.clipsToBounds = true
             cameraView.image = pickedImage
             saveMember(player: Player(name:yourName.text!,image:pickedImage,gender:gender))
         }
@@ -51,31 +52,34 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         layout.alignItems = .center
     }
         self.yourName = UILabel()
-        yourName.backgroundColor = .orange
+        yourName.backgroundColor = .systemIndigo
         yourName.text = "Player1"
         yourName.textAlignment = NSTextAlignment.center
         yourName.textColor = .white
-        yourName.font = UIFont.systemFont(ofSize: 16)
+        yourName.layer.borderWidth = 1
+        yourName.layer.cornerRadius = 10
+        yourName.layer.borderColor = UIColor.white.cgColor
+        yourName.font = UIFont.systemFont(ofSize: 26)
         self.yourName.configureLayout { (layout) in
             layout.isEnabled = true
             layout.width = YGValue(headerWidth)
             layout.height = YGValue(headerHeight)
-            layout.marginTop = 10
+            layout.marginTop = 50
         }
         self.view.addSubview(yourName)
         
         self.cameraView = UIImageView()
-        cameraView.backgroundColor = .green
+        cameraView.backgroundColor = .white
         self.cameraView.configureLayout { (layout) in
             layout.isEnabled = true
             layout.width = YGValue(contentWidth)
             layout.height = YGValue(contentHeight)
-            layout.margin = 30
+            layout.marginTop = 50
         }
         self.view.addSubview(cameraView)
         
         self.footerButtonsView = UIView()
-        footerButtonsView.backgroundColor = .brown
+//        footerButtonsView.backgroundColor = .systemGray5
         footerButtonsView.configureLayout { (layout) in
             layout.isEnabled = true
             layout.width = YGValue(footerViewWidth)
@@ -83,6 +87,7 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
             layout.justifyContent = .spaceAround
             layout.flexDirection = .row
             layout.alignItems = .center
+            layout.marginTop = 50
         }
 //        Retakeボタンは要らないという判断
 //        self.retakeButton = UIButton()
@@ -94,7 +99,10 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
 //        }
 //        footerButtonsView.addSubview(self.retakeButton)
         self.nextButton = UIButton()
-        self.nextButton.backgroundColor = .purple
+        self.nextButton.backgroundColor = .systemIndigo
+        self.nextButton.layer.borderColor = UIColor.white.cgColor
+        self.nextButton.layer.borderWidth = 1
+        self.nextButton.layer.cornerRadius = 10
         self.nextButton.setTitle(" 次の人へ！", for: UIControl.State.normal)
         self.nextButton.configureLayout { (layout) in
             layout.isEnabled = true
@@ -140,8 +148,8 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         memberList.append(player)
     }
     func takePictureAlert(){
-        let jidoriAlert = UIAlertController(title: "自撮りに進むよ！盛れるように準備してね", message: nil, preferredStyle: .alert)
-        jidoriAlert.addAction(UIAlertAction(title: "自撮りに進む", style: .default, handler: { (UIAlertAction) in
+        let jidoriAlert = UIAlertController(title: "自撮りに進むよ！精一杯の変顔を準備してね", message: nil, preferredStyle: .alert)
+        jidoriAlert.addAction(UIAlertAction(title: "変顔へGo!", style: .default, handler: { (UIAlertAction) in
             let picker = UIImagePickerController()
             picker.sourceType = .camera
             picker.delegate = self
