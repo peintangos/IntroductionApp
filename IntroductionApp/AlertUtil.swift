@@ -15,37 +15,37 @@ class AlertUtil{
         alert.addAction(UIAlertAction(title: "3人", style: UIAlertAction.Style.default, handler: { (action) in
             playerNumbers = 3
             let pf = BeforePlayFirstPlayer()
-            pf.modalPresentationStyle = .formSheet
+            pf.modalPresentationStyle = .fullScreen
             vc.present(pf, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "４人", style: UIAlertAction.Style.default, handler: { (action) in
             playerNumbers = 4
             let pf = BeforePlayFirstPlayer()
-            pf.modalPresentationStyle = .formSheet
+            pf.modalPresentationStyle = .fullScreen
             vc.present(pf, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "5人", style: UIAlertAction.Style.default, handler: { (action) in
             playerNumbers = 5
             let pf = BeforePlayFirstPlayer()
-            pf.modalPresentationStyle = .formSheet
+            pf.modalPresentationStyle = .fullScreen
             vc.present(pf, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "6人", style: UIAlertAction.Style.default, handler: { (action) in
             playerNumbers = 6
             let pf = BeforePlayFirstPlayer()
-            pf.modalPresentationStyle = .formSheet
+            pf.modalPresentationStyle = .fullScreen
             vc.present(pf, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "7人", style: UIAlertAction.Style.default, handler: { (action) in
             playerNumbers = 7
             let pf = BeforePlayFirstPlayer()
-            pf.modalPresentationStyle = .formSheet
+            pf.modalPresentationStyle = .fullScreen
             vc.present(pf, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "8人", style: UIAlertAction.Style.default, handler: { (action) in
             playerNumbers = 8
             let pf = BeforePlayFirstPlayer()
-            pf.modalPresentationStyle = .formSheet
+            pf.modalPresentationStyle = .fullScreen
             vc.present(pf, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: nil))

@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         memberList = Array()
         gameNumber = Int.random(in: 1..<1000000)
-        
+        self.view.backgroundColor = .systemIndigo
     }
     override func viewWillAppear(_ animated: Bool) {
         headerWidth = self.view.bounds.size.width / 1.5
@@ -95,12 +95,12 @@ class ViewController: UIViewController {
         view.addSubview(contentView)
         
 //        練習用に作る後で消す
-        let tempo = parts.button(vc: self)
-        contentView.addSubview(tempo)
-        tempo.rx.tap.subscribe { (action) in
-            let am = ResultsViewController()
-            self.present(am, animated: true, completion: nil)
-        }
+//        let tempo = parts.button(vc: self)
+//        contentView.addSubview(tempo)
+//        tempo.rx.tap.subscribe { (action) in
+//            let am = ResultsViewController()
+//            self.present(am, animated: true, completion: nil)
+//        }
         
         view.yoga.applyLayout(preservingOrigin: true)
 

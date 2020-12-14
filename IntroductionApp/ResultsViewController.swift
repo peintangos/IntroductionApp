@@ -118,12 +118,14 @@ class ResultsViewController: UIViewController {
         contentGaijinTitle.configureLayout { (layout) in
             layout.isEnabled = true
             layout.marginTop = 50
+            layout.justifyContent = .center
         }
         contentGaijinMain = UIView()
         contentGaijinMain.configureLayout { (layout) in
             layout.isEnabled = true
             layout.flexWrap = .wrap
-            layout.justifyContent = .center
+            layout.flexDirection = .column
+            layout.alignItems = .center
         }
 
         var index = 0
@@ -158,6 +160,7 @@ class ResultsViewController: UIViewController {
         contentGaijinTitle.textColor = .white
         contentAlcoholTitle.configureLayout { (layout) in
             layout.isEnabled = true
+            layout.justifyContent = .center
         }
         contentAlcoholMain = UIView()
         contentAlcoholMain.configureLayout { (layout) in
@@ -193,6 +196,7 @@ class ResultsViewController: UIViewController {
         contentPlayTitle.tintColor = .white
         contentPlayTitle.configureLayout { (layout) in
             layout.isEnabled = true
+            layout.justifyContent = .center
         }
         contentPlayMain = UIView()
         contentPlayMain.configureLayout { (layout) in
@@ -229,6 +233,7 @@ class ResultsViewController: UIViewController {
         contentTypeTitle.tintColor = .white
         contentTypeTitle.configureLayout { (layout) in
             layout.isEnabled = true
+            layout.justifyContent = .center
         }
         contentTypeMain = UIView()
         contentTypeMain.configureLayout { (layout) in
@@ -284,7 +289,7 @@ class ResultsViewController: UIViewController {
     
     func makeEndButton(){
         endButton = UIButton()
-        endButton.backgroundColor = .systemTeal
+        endButton.backgroundColor = .systemIndigo
         endButton.configureLayout { [self] (layout) in
         endButton.setTitle("トップ画面に戻る", for: UIControl.State.normal)
         endButton.setTitleColor(.white, for: .normal)
@@ -293,8 +298,9 @@ class ResultsViewController: UIViewController {
             layout.marginTop = 50
             layout.height = YGValue(footerButtonHeight)
             layout.width = YGValue(headerWidth)
-
+            layout.alignSelf = .center
         }
+            scrollView.addSubview(endButton)
     }
 
     /*
