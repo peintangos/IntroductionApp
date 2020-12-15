@@ -8,6 +8,7 @@
 import UIKit
 import YogaKit
 import RxSwift
+import ChameleonFramework
 
 class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -18,6 +19,7 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     var retakeButton:UIButton!
     var nextButton:UIButton!
     var isPicked:Bool!
+    var faceImage:UIImage!
     let dispose = DisposeBag()
 
     override func viewDidLoad() {
@@ -37,7 +39,7 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
             cameraView.contentMode = .scaleAspectFill
             cameraView.clipsToBounds = true
             cameraView.image = pickedImage
-            saveMember(player: Player(name:yourName.text!,image:pickedImage,gender:gender))
+            faceImage = pickedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -119,6 +121,13 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
             self.present(vc, animated: true, completion: nil)
         }
     }
+    func doRouterForRedFace(){
+        self.nextButton.rx.tap.subscribe { (action) in
+            let isHowMuchRed:UIColor = AverageColorFromImage(image: self.faceImage)
+            let a = isHowMuchRed.cgColor.components!
+            print(a[0])
+        }
+    }
     func conditionClear(){
         //        本当は、AlertUtilの中に持っていきたいが、UITextFieldDelegateの処理がわからないので一旦ここに記述する。もしかすると、Delegateも引数で渡せるかもと思うけど、一回たんま
                 if isPicked == nil {
@@ -144,12 +153,38 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
                     print("a")
                 }
     }
+    func conditionClearForRedFace(){
+        //        本当は、AlertUtilの中に持っていきたいが、UITextFieldDelegateの処理がわからないので一旦ここに記述する。もしかすると、Delegateも引数で渡せるかもと思うけど、一回たんま
+                if isPicked == nil {
+                    let alert = UIAlertController(title: "名前を入力してね", message: nil, preferredStyle: UIAlertController.Style.alert)
+                    alert.addTextField { (text) in
+                        text.delegate = self
+                    }
+                    alert.addAction(UIAlertAction.init(title: "完了", style: UIAlertAction.Style.default, handler: { (action) in
+                        self.yourName.text = alert.textFields![0].text! + "🍶"
+                        self.takePictureAlertForRedFace()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }else {
+                    print("a")
+                }
+    }
     func saveMember(player:Player){
         memberList.append(player)
     }
     func takePictureAlert(){
         let jidoriAlert = UIAlertController(title: "自撮りに進むよ！精一杯の変顔を準備してね", message: nil, preferredStyle: .alert)
         jidoriAlert.addAction(UIAlertAction(title: "変顔へGo!", style: .default, handler: { (UIAlertAction) in
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        }))
+        self.present(jidoriAlert, animated: true, completion: nil)
+    }
+    func takePictureAlertForRedFace(){
+        let jidoriAlert = UIAlertController(title: "どのくらい顔が赤いかチェックするよ！画面いっぱいに写してね", message: nil, preferredStyle: .alert)
+        jidoriAlert.addAction(UIAlertAction(title: "チェック！", style: .default, handler: { (UIAlertAction) in
             let picker = UIImagePickerController()
             picker.sourceType = .camera
             picker.delegate = self

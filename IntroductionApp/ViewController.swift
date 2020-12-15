@@ -112,6 +112,7 @@ class ViewController: UIViewController {
             
             leftContentView.rx.tap.subscribe { (action) in
                 let fv = FaceRedFieldViewController()
+                fv.modalPresentationStyle = .fullScreen
                 self.present(fv, animated: true, completion: nil)
             }.disposed(by: dispose)
         }
