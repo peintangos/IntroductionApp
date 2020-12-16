@@ -8,6 +8,8 @@
 import UIKit
 import YogaKit
 import RxSwift
+import AVFoundation
+
 
 class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -18,6 +20,8 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     var retakeButton:UIButton!
     var nextButton:UIButton!
     var isPicked:Bool!
+    var faceImage:UIImage!
+    var yourScoreRedFace:CGFloat?
     let dispose = DisposeBag()
 
     override func viewDidLoad() {
@@ -37,7 +41,11 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
             cameraView.contentMode = .scaleAspectFill
             cameraView.clipsToBounds = true
             cameraView.image = pickedImage
-            saveMember(player: Player(name:yourName.text!,image:pickedImage,gender:gender))
+            faceImage = pickedImage
+            if gender != nil {
+                saveMember(player: Player(name:yourName.text!,image:pickedImage,gender:gender))
+                
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -157,7 +165,54 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         }))
         self.present(jidoriAlert, animated: true, completion: nil)
     }
-
+    func conditionClearForRedFace(){
+           //        本当は、AlertUtilの中に持っていきたいが、UITextFieldDelegateの処理がわからないので一旦ここに記述する。もしかすると、Delegateも引数で渡せるかもと思うけど、一回たんま
+                   if isPicked == nil {
+                       let alert = UIAlertController(title: "名前を入力してね", message: nil, preferredStyle: UIAlertController.Style.alert)
+                       alert.addTextField { (text) in
+                           text.delegate = self
+                       }
+                       alert.addAction(UIAlertAction.init(title: "完了", style: UIAlertAction.Style.default, handler: { (action) in
+                           self.yourName.text = alert.textFields![0].text! + "🍶"
+                           self.takePictureAlertForRedFace()
+                       }))
+                       self.present(alert, animated: true, completion: nil)
+                   }else {
+                       print("a")
+                   }
+       }
+    func takePictureAlertForRedFace(){
+            let jidoriAlert = UIAlertController(title: "どのくらい顔が赤いかチェックするよ！画面いっぱいに写してね", message: nil, preferredStyle: .alert)
+            jidoriAlert.addAction(UIAlertAction(title: "チェック！", style: .default, handler: { (UIAlertAction) in
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }))
+            self.present(jidoriAlert, animated: true, completion: nil)
+        }
+        
+    }
+    var audioPlayer: AVAudioPlayer!
+    extension BeforePlayViewController: AVAudioPlayerDelegate {
+        func playSound(name: String) {
+    //        guard let path = Bundle.main.bundlePath.ap else {
+    //            print("音源ファイルが見つかりません")
+    //            return
+    //        }
+            do {
+                let path = Bundle.main.bundleURL.appendingPathComponent("nizu.mp3")
+                // AVAudioPlayerのインスタンス化
+                audioPlayer = try AVAudioPlayer(contentsOf: path, fileTypeHint: nil)
+                // AVAudioPlayerのデリゲートをセット
+                audioPlayer.delegate = self
+                // 音声の再生
+                print("a")
+                audioPlayer.play()
+            } catch {
+                print("b")
+            }
+        }
     
 
     /*

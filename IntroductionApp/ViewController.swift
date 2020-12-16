@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         memberList = Array()
         gameNumber = Int.random(in: 1..<1000000)
         self.view.backgroundColor = .systemIndigo
+        count = 0
     }
     override func viewWillAppear(_ animated: Bool) {
         headerWidth = self.view.bounds.size.width / 1.5

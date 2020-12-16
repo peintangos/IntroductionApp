@@ -123,5 +123,13 @@ class AlertUtil{
         }))
         vc.presentingViewController?.present(alert, animated: true, completion: nil)
     }
+    func showResultYourFace(vc:UIViewController,message:String){
+          let alert = UIAlertController(title: "あなたのスコアは...", message: message + "🍺", preferredStyle: UIAlertController.Style.alert)
+          alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+              vc.dismiss(animated: true, completion: nil)
+          }))
+          
+          vc.present(alert, animated: true, completion: nil)
+      }
 }
 

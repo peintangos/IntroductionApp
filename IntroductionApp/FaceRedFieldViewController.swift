@@ -9,46 +9,35 @@ import UIKit
 import RxSwift
 import ChameleonFramework
 
-class FaceRedFieldViewController: UIViewController {
-
-    var backButton:UIButton!
-    let dispose = DisposeBag()
+class FaceRedFieldViewController: BeforePlayViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+//        self.view.backgroundColor = .red
         // Do any additional setup after loading the view.
-        backButton = UIButton()
-        backButton.layer.cornerRadius = 50
-        backButton.backgroundColor = .red
-        self.view.addSubview(backButton)
-        backButton.rx.tap.subscribe { (action) in
+        doLayout()
+        doRouterForRedFace()
+        doConfigureForRedFace()
+        playSound(name: "aaa")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        conditionClearForRedFace()
+    }
+    func doRouterForRedFace(){
+        self.nextButton.rx.tap.subscribe { (action) in
+            let isHowMuchRed:UIColor = AverageColorFromImage(image: self.faceImage)
+            self.yourScoreRedFace = round(isHowMuchRed.cgColor.components![0] * 100)
+            AlertUtil().showResultYourFace(vc: self, message: self.yourScoreRedFace!.description)
+        }
+    }
+    override func doRouter() {
+        self.nextButton.rx.tap.subscribe { (action) in
             self.dismiss(animated: true, completion: nil)
-//            AverageColorFromImageの戻り値はUIDeviceRGBColorである。UIColorとして宣言できたのでこれをRGBに変換し、Redの要素を取り出す。
-            let isHowMuchRed:UIColor = AverageColorFromImage(image: UIImage(named: "example")!)
-            let a = isHowMuchRed.cgColor.components!
-            print(a[0])
-            let isHowMuchRed2:UIColor = AverageColorFromImage(image: UIImage(named: "redTell")!)
-            let b = isHowMuchRed2.cgColor.components!
-            print(b[0])
+            let vc = BeforePlayThirdPlayer()
+            vc.modalPresentationStyle = .fullScreen
+            self.presentingViewController!.present(vc, animated: true, completion: nil)
         }.disposed(by: dispose)
     }
-    override func viewDidLayoutSubviews() {
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        backButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
+    func doConfigureForRedFace(){
+        self.nextButton.setTitle("チェック", for: .normal)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
