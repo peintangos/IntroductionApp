@@ -39,6 +39,7 @@
 		0FA3CF1D25791B260014379F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CF1C25791B260014379F /* BaseViewController.swift */; };
 		0FA3CF2A25791EE40014379F /* BeforePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CF2925791EE40014379F /* BeforePlayViewController.swift */; };
 		0FA3CF2F257920E80014379F /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CF2E257920E80014379F /* AlertUtil.swift */; };
+		0FC825B0258A650700309E1C /* nizu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FC825AF258A650700309E1C /* nizu.mp3 */; };
 		4375015FD60248A1B74AFCD5 /* Pods_IntroductionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C4AAEF45C510371B78B0A8 /* Pods_IntroductionApp.framework */; };
 		5DBC36C06D00E1CDF24105FC /* Pods_IntroductionApp_IntroductionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 851960136F9B5437DB228819 /* Pods_IntroductionApp_IntroductionAppUITests.framework */; };
 		65BF5D3369D16BC8E0FA4B55 /* Pods_IntroductionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 856394F11476CC13325C3D92 /* Pods_IntroductionAppTests.framework */; };
@@ -100,6 +101,8 @@
 		0FA3CF1C25791B260014379F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0FA3CF2925791EE40014379F /* BeforePlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforePlayViewController.swift; sourceTree = "<group>"; };
 		0FA3CF2E257920E80014379F /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
+		0FC825AB258A61F600309E1C /* aaa.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaa.m4a; sourceTree = "<group>"; };
+		0FC825AF258A650700309E1C /* nizu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nizu.mp3; sourceTree = "<group>"; };
 		3BCC817149C074A57B360EEE /* Pods-IntroductionAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntroductionAppTests.release.xcconfig"; path = "Target Support Files/Pods-IntroductionAppTests/Pods-IntroductionAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		42E1773C1C770D5EEAD7151F /* Pods-IntroductionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntroductionApp.debug.xcconfig"; path = "Target Support Files/Pods-IntroductionApp/Pods-IntroductionApp.debug.xcconfig"; sourceTree = "<group>"; };
 		48C4AAEF45C510371B78B0A8 /* Pods_IntroductionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntroductionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +173,8 @@
 				0FA3CF1C25791B260014379F /* BaseViewController.swift */,
 				0FA3CEC02577C69C0014379F /* Assets.xcassets */,
 				0FA3CEC22577C69C0014379F /* LaunchScreen.storyboard */,
+				0FC825AB258A61F600309E1C /* aaa.m4a */,
+				0FC825AF258A650700309E1C /* nizu.mp3 */,
 				0FA3CEC52577C69C0014379F /* Info.plist */,
 				0FA3CF2925791EE40014379F /* BeforePlayViewController.swift */,
 				0FA3CF2E257920E80014379F /* AlertUtil.swift */,
@@ -349,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FA3CEC42577C69C0014379F /* LaunchScreen.storyboard in Resources */,
+				0FC825B0258A650700309E1C /* nizu.mp3 in Resources */,
 				0FA3CEC12577C69C0014379F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

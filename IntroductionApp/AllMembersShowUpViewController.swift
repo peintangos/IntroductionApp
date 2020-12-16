@@ -8,6 +8,7 @@
 import UIKit
 import YogaKit
 import RxSwift
+import AVFoundation
 
 var parentView:UIViewController!
 class AllMembersShowUpViewController: UIViewController {
@@ -20,6 +21,7 @@ class AllMembersShowUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        self.playSound()
         parentView = self
         self.view.backgroundColor = .systemIndigo
         view.configureLayout { (layout) in
@@ -127,4 +129,21 @@ class AllMembersShowUpViewController: UIViewController {
     }
     */
 
+}
+var audioPlayerForAll: AVAudioPlayer!
+extension AllMembersShowUpViewController: AVAudioPlayerDelegate {
+    func playSound() {
+        do {
+            let path = Bundle.main.bundleURL.appendingPathComponent("nizu.mp3")
+            // AVAudioPlayerのインスタンス化
+            audioPlayerForAll = try AVAudioPlayer(contentsOf: path, fileTypeHint: nil)
+            // AVAudioPlayerのデリゲートをセット
+            audioPlayerForAll.delegate = self
+            // 音声の再生
+            print("a")
+            audioPlayerForAll.play()
+        } catch {
+            print("b")
+        }
+    }
 }

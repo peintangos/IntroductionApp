@@ -9,6 +9,7 @@ import UIKit
 import YogaKit
 import RxSwift
 import ChameleonFramework
+import AVFoundation
 
 class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -20,6 +21,7 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     var nextButton:UIButton!
     var isPicked:Bool!
     var faceImage:UIImage!
+    var yourScoreRedFace:CGFloat?
     let dispose = DisposeBag()
 
     override func viewDidLoad() {
@@ -115,19 +117,14 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         self.view.addSubview(footerButtonsView)
         view.yoga.applyLayout(preservingOrigin: true)
     }
+
     func doRouter(){
         self.nextButton.rx.tap.subscribe { (action) in
             let vc = BeforePlaySeoncdPlayer()
             self.present(vc, animated: true, completion: nil)
         }
     }
-    func doRouterForRedFace(){
-        self.nextButton.rx.tap.subscribe { (action) in
-            let isHowMuchRed:UIColor = AverageColorFromImage(image: self.faceImage)
-            let a = isHowMuchRed.cgColor.components!
-            print(a[0])
-        }
-    }
+
     func conditionClear(){
         //        本当は、AlertUtilの中に持っていきたいが、UITextFieldDelegateの処理がわからないので一旦ここに記述する。もしかすると、Delegateも引数で渡せるかもと思うけど、一回たんま
                 if isPicked == nil {
@@ -192,6 +189,32 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         }))
         self.present(jidoriAlert, animated: true, completion: nil)
     }
+    
+}
+var audioPlayer: AVAudioPlayer!
+extension BeforePlayViewController: AVAudioPlayerDelegate {
+    func playSound(name: String) {
+//        guard let path = Bundle.main.bundlePath.ap else {
+//            print("音源ファイルが見つかりません")
+//            return
+//        }
+        do {
+            let path = Bundle.main.bundleURL.appendingPathComponent("nizu.mp3")
+            // AVAudioPlayerのインスタンス化
+            audioPlayer = try AVAudioPlayer(contentsOf: path, fileTypeHint: nil)
+            // AVAudioPlayerのデリゲートをセット
+            audioPlayer.delegate = self
+            // 音声の再生
+            print("a")
+            audioPlayer.play()
+        } catch {
+            print("b")
+        }
+    }
+}
+
+
+
 
     
 
@@ -205,4 +228,4 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     }
     */
 
-}
+
