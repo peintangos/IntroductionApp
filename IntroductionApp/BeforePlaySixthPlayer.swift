@@ -14,6 +14,7 @@ class BeforePlaySixthPlayer:BeforePlayViewController{
         // Do any additional setup after loading the view.
         doLayout()
         doRouter()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         conditionClear()

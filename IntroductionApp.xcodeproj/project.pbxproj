@@ -29,6 +29,9 @@
 		0F7941712584E6FF00FEAF91 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7941702584E6FF00FEAF91 /* ResultsViewController.swift */; };
 		0FA17D02258A7AF900C39951 /* nizu_a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA17D01258A7AF900C39951 /* nizu_a.mp3 */; };
 		0FA17D0A258A7DFC00C39951 /* nizu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA17D09258A7DFC00C39951 /* nizu.mp3 */; };
+		0FA17D12258BB0F300C39951 /* girl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA17D11258BB0F300C39951 /* girl.mp3 */; };
+		0FA17D1A258BB36A00C39951 /* ed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA17D19258BB36A00C39951 /* ed.mp3 */; };
+		0FA17D23258BB73500C39951 /* doram.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA17D22258BB73500C39951 /* doram.mp3 */; };
 		0FA2A581257B506C004ADC40 /* FaceRedFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */; };
 		0FA2A5A5257B5ADE004ADC40 /* UIParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */; };
 		0FA3CEB82577C69A0014379F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3CEB72577C69A0014379F /* AppDelegate.swift */; };
@@ -86,6 +89,9 @@
 		0F7941702584E6FF00FEAF91 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0FA17D01258A7AF900C39951 /* nizu_a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nizu_a.mp3; sourceTree = "<group>"; };
 		0FA17D09258A7DFC00C39951 /* nizu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nizu.mp3; sourceTree = "<group>"; };
+		0FA17D11258BB0F300C39951 /* girl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = girl.mp3; sourceTree = "<group>"; };
+		0FA17D19258BB36A00C39951 /* ed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ed.mp3; sourceTree = "<group>"; };
+		0FA17D22258BB73500C39951 /* doram.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = doram.mp3; sourceTree = "<group>"; };
 		0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRedFieldViewController.swift; sourceTree = "<group>"; };
 		0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIParts.swift; sourceTree = "<group>"; };
 		0FA3CEB42577C69A0014379F /* IntroductionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroductionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,8 +183,11 @@
 				0FA3CEC52577C69C0014379F /* Info.plist */,
 				0FA3CF2925791EE40014379F /* BeforePlayViewController.swift */,
 				0FA17D01258A7AF900C39951 /* nizu_a.mp3 */,
+				0FA17D22258BB73500C39951 /* doram.mp3 */,
 				0FA17D09258A7DFC00C39951 /* nizu.mp3 */,
 				0FA3CF2E257920E80014379F /* AlertUtil.swift */,
+				0FA17D11258BB0F300C39951 /* girl.mp3 */,
+				0FA17D19258BB36A00C39951 /* ed.mp3 */,
 				0FA2A580257B506C004ADC40 /* FaceRedFieldViewController.swift */,
 				0FA2A5A4257B5ADE004ADC40 /* UIParts.swift */,
 				0F794120257B813300FEAF91 /* AllMembersShowUpViewController.swift */,
@@ -354,8 +363,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA17D1A258BB36A00C39951 /* ed.mp3 in Resources */,
+				0FA17D23258BB73500C39951 /* doram.mp3 in Resources */,
 				0FA17D0A258A7DFC00C39951 /* nizu.mp3 in Resources */,
 				0FA3CEC42577C69C0014379F /* LaunchScreen.storyboard in Resources */,
+				0FA17D12258BB0F300C39951 /* girl.mp3 in Resources */,
 				0FA17D02258A7AF900C39951 /* nizu_a.mp3 in Resources */,
 				0FA3CEC12577C69C0014379F /* Assets.xcassets in Resources */,
 			);

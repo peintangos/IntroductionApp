@@ -111,6 +111,8 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         self.nextButton.layer.borderColor = UIColor.white.cgColor
         self.nextButton.layer.borderWidth = 1
         self.nextButton.layer.cornerRadius = 10
+        nextButton.layer.shadowOpacity = 1
+        nextButton.layer.shadowOffset = .zero
         self.nextButton.setTitle(" 次の人へ！", for: UIControl.State.normal)
         self.nextButton.configureLayout { (layout) in
             layout.isEnabled = true
@@ -193,7 +195,7 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
         }
         
     }
-    var audioPlayer: AVAudioPlayer!
+    
     extension BeforePlayViewController: AVAudioPlayerDelegate {
         func playSound(name: String) {
     //        guard let path = Bundle.main.bundlePath.ap else {
@@ -201,7 +203,7 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     //            return
     //        }
             do {
-                let path = Bundle.main.bundleURL.appendingPathComponent("nizu.mp3")
+                let path = Bundle.main.bundleURL.appendingPathComponent(name)
                 // AVAudioPlayerのインスタンス化
                 audioPlayer = try AVAudioPlayer(contentsOf: path, fileTypeHint: nil)
                 // AVAudioPlayerのデリゲートをセット
@@ -226,3 +228,4 @@ class BeforePlayViewController: UIViewController,UITextFieldDelegate,UIImagePick
     */
 
 }
+var audioPlayer: AVAudioPlayer!

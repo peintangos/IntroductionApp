@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 import RealmSwift
+import AVFoundation
 
-class AlertUtil{
+class AlertUtil :NSObject{
     func makeAlert(vc:UIViewController){
         let alert = UIAlertController(title: "参加人数を入力してね", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "3人", style: UIAlertAction.Style.default, handler: { (action) in
@@ -114,6 +115,8 @@ class AlertUtil{
         vc.present(alert, animated: true, completion: nil)
     }
     func showResult(vc:UIViewController,nextVc:UIViewController){
+        audioPlayerSecond.stop()
+        self.playSound(name: "doram.mp3")
         let alert = UIAlertController(title: "結果発表へ🍺", message: "心の準備はいい？？", preferredStyle: UIAlertController.Style.alert)
         vc.dismiss(animated: true, completion: nil)
         alert.addAction(UIAlertAction.init(title: "見にいく", style: UIAlertAction.Style.default, handler: { (action) in
@@ -132,4 +135,22 @@ class AlertUtil{
           vc.present(alert, animated: true, completion: nil)
       }
 }
+extension AlertUtil: AVAudioPlayerDelegate {
+    func playSound(name: String) {
+        do {
+            let path = Bundle.main.bundleURL.appendingPathComponent(name)
+            // AVAudioPlayerのインスタンス化
+            lastPlayer = try AVAudioPlayer(contentsOf: path, fileTypeHint: nil)
+            // AVAudioPlayerのデリゲートをセット
+            lastPlayer.delegate = self
+            // 音声の再生
+            print("a")
+            lastPlayer.play()
+        } catch {
+            print("b")
+        }
+    }
+}
+    var lastPlayer:AVAudioPlayer!
+
 

@@ -53,14 +53,7 @@ class ResultsViewController: UIViewController {
         print(impressionResultsAlcoholRanking)
         print(impressionResultsTypeRanking)
         
-
-//        memberList.append(Player(name: "a", image: UIImage(named: "example")!, gender: 0))
-//        memberList.append(Player(name: "b", image: UIImage(named: "example")!, gender: 0))
-//        memberList.append(Player(name: "c", image: UIImage(named: "example")!, gender: 0))
-//        memberList.append(Player(name: "d", image: UIImage(named: "example")!, gender: 0))
-
-    
-    
+        
         self.makeScrhollView()
         self.makeContentGaijinArea()
         self.makeContentAlcoholArea()
@@ -260,7 +253,7 @@ class ResultsViewController: UIViewController {
         var index = 1
         list.forEach { (resultDisplay) in
             var contentEachView = UIView()
-            contentEachView.backgroundColor = .red
+//            contentEachView.backgroundColor = .red
             contentEachView.configureLayout { (layout) in
                 layout.isEnabled = true
                 layout.flexDirection = .column

@@ -24,7 +24,6 @@ class BeforePlayFourthPlayer :BeforePlayViewController{
             var vc:UIViewController!
             if playerNumbers! == 4 {
                 vc = AllMembersShowUpViewController()
-                vc.modalPresentationStyle = .fullScreen
             }else {
                 vc = BeforePlayFifthPlayer()
             }

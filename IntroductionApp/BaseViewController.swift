@@ -10,6 +10,7 @@
  */
 import UIKit
 import RxSwift
+import AVFoundation
 import YogaKit
 
 class BaseViewController: UIViewController {
@@ -119,6 +120,8 @@ class BaseViewController: UIViewController {
         answerButton.layer.borderColor = UIColor.white.cgColor
         answerButton.layer.borderWidth = 1
         answerButton.setTitle("選ぶ！🍻", for: UIControl.State.normal)
+        answerButton.layer.shadowOpacity = 1
+        answerButton.layer.shadowOffset = .zero
         answerButton.configureLayout { (layout) in
 //            このマージントップ100は無理やりすぎる。なぜか、画像に重なってしまう。
             layout.marginTop = 200
@@ -158,3 +161,4 @@ class BaseViewController: UIViewController {
     */
 
 }
+
