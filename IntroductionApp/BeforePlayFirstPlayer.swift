@@ -14,6 +14,7 @@ class BeforePlayFirstPlayer :BeforePlayViewController{
         // Do any additional setup after loading the view.
         doLayout()
         doRouter()
+        playSound(name: "girl.mp3")
     }
     override func viewWillAppear(_ animated: Bool) {
         conditionClear()

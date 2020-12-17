@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import ChameleonFramework
+import AVFoundation
 
 class FaceRedFieldViewController: BeforePlayViewController{
     override func viewDidLoad() {
@@ -17,7 +18,7 @@ class FaceRedFieldViewController: BeforePlayViewController{
         doLayout()
         doRouterForRedFace()
         doConfigureForRedFace()
-        playSound(name: "aaa")
+        playSound(name: "nizu_a.mp3")
     }
     override func viewWillAppear(_ animated: Bool) {
         conditionClearForRedFace()
@@ -41,3 +42,4 @@ class FaceRedFieldViewController: BeforePlayViewController{
         self.nextButton.setTitle("チェック", for: .normal)
     }
 }
+

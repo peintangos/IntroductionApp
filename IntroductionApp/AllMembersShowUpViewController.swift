@@ -8,6 +8,7 @@
 import UIKit
 import YogaKit
 import RxSwift
+import AVFoundation
 
 var parentView:UIViewController!
 class AllMembersShowUpViewController: UIViewController {
@@ -20,6 +21,7 @@ class AllMembersShowUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        audioPlayer.stop()
         parentView = self
         self.view.backgroundColor = .systemIndigo
         view.configureLayout { (layout) in
@@ -92,6 +94,8 @@ class AllMembersShowUpViewController: UIViewController {
         startButton.layer.cornerRadius = 10
         startButton.setTitle("第一印象ゲームを始める🍻", for: UIControl.State.normal)
         startButton.setTitleColor(.white, for: .normal)
+        startButton.layer.shadowOpacity = 1
+        startButton.layer.shadowOffset = .zero
         startButton.configureLayout { (layout) in
             layout.isEnabled = true
             layout.marginTop = 50
@@ -109,6 +113,7 @@ class AllMembersShowUpViewController: UIViewController {
     }
     func doRouter(){
         self.startButton.rx.tap.subscribe { (action) in
+            self.playSound(name: "ed.mp3")
             AlertUtil().makeTurn(vc: self, nextVc:PlayFieldFirstViewController(),text: memberList[count].getName())
 //            TODO 人数で分岐する
 
@@ -128,3 +133,21 @@ class AllMembersShowUpViewController: UIViewController {
     */
 
 }
+extension AllMembersShowUpViewController: AVAudioPlayerDelegate {
+    func playSound(name: String) {
+        do {
+            let path = Bundle.main.bundleURL.appendingPathComponent(name)
+            // AVAudioPlayerのインスタンス化
+            audioPlayerSecond = try AVAudioPlayer(contentsOf: path, fileTypeHint: nil)
+            // AVAudioPlayerのデリゲートをセット
+            audioPlayerSecond.delegate = self
+            // 音声の再生
+            print("a")
+            audioPlayerSecond.play()
+        } catch {
+            print("b")
+        }
+    }
+}
+var audioPlayerSecond :AVAudioPlayer!
+
