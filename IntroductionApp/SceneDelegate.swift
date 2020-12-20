@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        StoryBoardを消すとこのコードを書かないといけない。
         if let windowScene = scene as? UIWindowScene {
                   let window = UIWindow(windowScene: windowScene)
-                  window.rootViewController = ViewController(nibName: nil, bundle: nil)
+            window.rootViewController = UINavigationController(rootViewController: ViewController(nibName: nil, bundle: nil))
                   self.window = window
                   window.makeKeyAndVisible()
               }

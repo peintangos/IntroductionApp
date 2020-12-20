@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F12D48C258F0712008BCD0B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12D48B258F0712008BCD0B /* SideMenuViewController.swift */; };
 		0F5538412585AFF900B3F549 /* ImpressionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5538402585AFF900B3F549 /* ImpressionResult.swift */; };
 		0F5538462585B13100B3F549 /* DatabaseDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5538452585B13100B3F549 /* DatabaseDriver.swift */; };
 		0F55386B2585EA8E00B3F549 /* CountUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F55386A2585EA8E00B3F549 /* CountUp.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F12D48B258F0712008BCD0B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		0F5538402585AFF900B3F549 /* ImpressionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpressionResult.swift; sourceTree = "<group>"; };
 		0F5538452585B13100B3F549 /* DatabaseDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDriver.swift; sourceTree = "<group>"; };
 		0F55386A2585EA8E00B3F549 /* CountUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountUp.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				0F55387925862C4C00B3F549 /* BeforePlaySixthPlayer.swift */,
 				0F55387E25862CC000B3F549 /* BeforePlaySeventhPlayer.swift */,
 				0F55388325862D1200B3F549 /* BeforePlayEightPlayer.swift */,
+				0F12D48B258F0712008BCD0B /* SideMenuViewController.swift */,
 			);
 			path = IntroductionApp;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				0F7941712584E6FF00FEAF91 /* ResultsViewController.swift in Sources */,
 				0F7941412584976400FEAF91 /* BeforePlayThirdPlayer.swift in Sources */,
 				0F55388425862D1200B3F549 /* BeforePlayEightPlayer.swift in Sources */,
+				0F12D48C258F0712008BCD0B /* SideMenuViewController.swift in Sources */,
 				0F79414B258499C100FEAF91 /* Player.swift in Sources */,
 				0F55387525862C0700B3F549 /* BeforePlayFifthPlayer.swift in Sources */,
 				0F7941672584CD1D00FEAF91 /* PlayFieldThirdViewController.swift in Sources */,
