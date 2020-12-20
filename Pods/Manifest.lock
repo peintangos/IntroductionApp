@@ -23,6 +23,7 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SideMenu (5.0.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - RealmSwift (~> 10.4.0)
   - RxCocoa
   - RxSwift
+  - SideMenu
   - YogaKit (~> 1.5)
 
 SPEC REPOS:
@@ -46,6 +48,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SideMenu
     - Yoga
     - YogaKit
 
@@ -58,9 +61,10 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 81719d2cfeb45afb9f3bc05a00a58eeaf343991e
+PODFILE CHECKSUM: 990e82c1ee2acb0de7d73f2a119f4093aa511751
 
 COCOAPODS: 1.10.0

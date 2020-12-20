@@ -10,6 +10,7 @@ target 'IntroductionApp' do
   pod 'Alamofire'
   pod 'YogaKit', '~> 1.5'
   pod 'ChameleonFramework/Swift'
+  pod ‘SideMenu’
   platform :ios, '9.0'
   pod 'PromiseKit', '~> 6.8'  
   # Pods for IntroductionApp

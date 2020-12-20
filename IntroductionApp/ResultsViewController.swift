@@ -77,7 +77,7 @@ class ResultsViewController: UIViewController {
         //scrollViewをviewのSubViewとして追加
         self.view.addSubview(scrollView)
         
-        scrollView.backgroundColor = .systemRed
+        scrollView.backgroundColor = .systemIndigo
         scrollView.configureLayout { (layout) in
         layout.isEnabled = true
         layout.width = YGValue(self.view.bounds.size.width)
@@ -99,20 +99,18 @@ class ResultsViewController: UIViewController {
         contentGaijin.configureLayout { (layout) in
             layout.isEnabled = true
             layout.height = 1000
-            layout.flexWrap = .wrap
-            layout.flexDirection = .row
         }
         
         contentGaijinTitle = UILabel()
-        contentGaijinTitle.text = Strings.rankingGaijinTitle
-        contentGaijinTitle.textAlignment = .center
-        contentGaijinTitle.font = UIFont.systemFont(ofSize: 26)
-        contentGaijinTitle.tintColor = .white
         contentGaijinTitle.configureLayout { (layout) in
             layout.isEnabled = true
             layout.marginTop = 50
             layout.justifyContent = .center
         }
+        contentGaijinTitle.text = Strings.rankingGaijinTitle
+        contentGaijinTitle.textAlignment = .center
+        contentGaijinTitle.font = UIFont.systemFont(ofSize: 26)
+        contentGaijinTitle.textColor = .white
         contentGaijinMain = UIView()
         contentGaijinMain.configureLayout { (layout) in
             layout.isEnabled = true
@@ -150,10 +148,11 @@ class ResultsViewController: UIViewController {
         contentAlcoholTitle.text = Strings.rankingAlcoholTitle
         contentAlcoholTitle.font = UIFont.systemFont(ofSize: 26)
         contentAlcoholTitle.textAlignment = .center
-        contentGaijinTitle.textColor = .white
+        contentAlcoholTitle.textColor = .white
         contentAlcoholTitle.configureLayout { (layout) in
             layout.isEnabled = true
             layout.justifyContent = .center
+            layout.marginTop = 50
         }
         contentAlcoholMain = UIView()
         contentAlcoholMain.configureLayout { (layout) in
@@ -183,13 +182,14 @@ class ResultsViewController: UIViewController {
             layout.height = 1000
         }
         contentPlayTitle = UILabel()
-        contentPlayTitle.text = Strings.rankingPlayTitle
+        contentPlayTitle.text = Strings.rankingTypeTitle
         contentPlayTitle.textAlignment = .center
         contentPlayTitle.font = UIFont.systemFont(ofSize: 26)
-        contentPlayTitle.tintColor = .white
+        contentPlayTitle.textColor = .white
         contentPlayTitle.configureLayout { (layout) in
             layout.isEnabled = true
             layout.justifyContent = .center
+            layout.marginTop = 50
         }
         contentPlayMain = UIView()
         contentPlayMain.configureLayout { (layout) in
@@ -223,10 +223,11 @@ class ResultsViewController: UIViewController {
         contentTypeTitle.text = Strings.rankingPlayTitle
         contentTypeTitle.textAlignment = .center
         contentTypeTitle.font = UIFont.systemFont(ofSize: 26)
-        contentTypeTitle.tintColor = .white
+        contentTypeTitle.textColor = .white
         contentTypeTitle.configureLayout { (layout) in
             layout.isEnabled = true
             layout.justifyContent = .center
+            layout.marginTop = 50
         }
         contentTypeMain = UIView()
         contentTypeMain.configureLayout { (layout) in
@@ -288,7 +289,7 @@ class ResultsViewController: UIViewController {
         endButton.setTitleColor(.white, for: .normal)
         endButton.configureLayout { (layout) in
             layout.isEnabled = true
-            layout.marginTop = 50
+            layout.marginTop = 10
             layout.height = YGValue(footerButtonHeight)
             layout.width = YGValue(headerWidth)
             layout.alignSelf = .center

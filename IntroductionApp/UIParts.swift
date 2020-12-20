@@ -20,7 +20,6 @@ class UIParts: NSObject {
             layout.isEnabled = true
             layout.width = 100
             layout.height = 100
-            layout.marginTop = 100
         }
         topButton.layer.shadowColor = UIColor.black.cgColor
         topButton.layer.shadowOpacity = 2
@@ -42,9 +41,6 @@ class UIParts: NSObject {
             layout.isEnabled = true
             layout.width = 100
             layout.height = 100
-//           正直セーフエリアは関係ないというか。これは画像の大きさに対して調整するものであってセーフエリアのボトムは問題ではない。が
-//           仕様を理解するまでは、これで我慢する
-            layout.marginTop = 100
         }
         topButton.layer.borderColor = UIColor.white.cgColor
         topButton.layer.borderWidth = 1
@@ -61,12 +57,23 @@ class UIParts: NSObject {
         contentView.configureLayout { (layout) in
             layout.isEnabled = true
             layout.width = YGValue(vc.view.bounds.size.width)
-            layout.height = YGValue(vc.view.bounds.size.height)
+//            layout.height = YGValue(vc.view.bounds.size.height)
             layout.flexDirection = .row
             layout.justifyContent = .spaceAround
             layout.alignItems = .center
+            layout.marginBottom = YGValue(integerLiteral: safeAreaBottom!)
         }
         return contentView
+    }
+    func makeTitleView(vc:UIViewController) -> UIView{
+        let titleView = UIView()
+        titleView.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.width = YGValue(vc.view.bounds.size.width)
+            layout.height = YGValue(vc.view.bounds.size.height / 2)
+            layout.alignItems = .center
+        }
+        return titleView
     }
     func makeTitle(vc:UIViewController) -> UILabel{
         let titleLabel = UILabel()
@@ -74,8 +81,7 @@ class UIParts: NSObject {
             layout.isEnabled = true
             layout.width = YGValue(vc.view.bounds.size.width / 1.5)
             layout.height = YGValue(vc.view.bounds.size.width / 3)
-            layout.justifyContent = .center
-            layout.marginTop = YGValue(integerLiteral: 280 + safeAreaTop!)
+            layout.marginTop = 150
         }
         titleLabel.text = "Introduction Game"
         titleLabel.textColor = .white
@@ -85,6 +91,29 @@ class UIParts: NSObject {
         titleLabel.layer.cornerRadius = 10
         titleLabel.font = UIFont.systemFont(ofSize: 16)
         return titleLabel
+    }
+    func makeHeaderView(vc:UIViewController) -> UIView{
+        let headerView = UIView()
+        headerView.backgroundColor = .white
+        headerView.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.width = YGValue(vc.view.bounds.size.width)
+            layout.height = 50
+            layout.flexDirection = .row
+            layout.justifyContent = .flexStart
+            layout.marginTop = YGValue(integerLiteral: safeAreaTop!)
+        }
+        return headerView
+    }
+    func makeMenuButton() ->UIButton{
+        let menuButton = UIButton()
+        menuButton.backgroundColor = .systemRed
+        menuButton.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.height = 50
+            layout.width = 50
+        }
+        return menuButton
     }
     func button(vc:UIViewController) -> UIButton{
         let button = UIButton()
