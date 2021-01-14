@@ -108,6 +108,7 @@ class ResultsViewController: UIViewController {
             layout.justifyContent = .center
         }
         contentGaijinTitle.text = Strings.rankingGaijinTitle
+        contentGaijinTitle.numberOfLines = 0
         contentGaijinTitle.textAlignment = .center
         contentGaijinTitle.font = UIFont.systemFont(ofSize: 26)
         contentGaijinTitle.textColor = .white
